@@ -1,9 +1,6 @@
-import { app, database } from '../../../firebase-config';
-import { collection, addDoc } from 'firebase/firestore'; // addDoc to add data in a collection
 import styles from '../../styles/Home.module.css';
 import { useState } from 'react';
-
-const mainCollection = collection(database, 'notes'); // to take the database from firebase config
+import { saveNote } from '../../../firebase-config';
 
 export const NoteOperations = () => {
    const [isInputVisible, setInputVisible] = useState(false);
@@ -11,19 +8,10 @@ export const NoteOperations = () => {
       setInputVisible(!isInputVisible)
    }
 
-   const [noteTitle, setNoteTitle] = useState(true); // mmm?
-
-   const saveNote = () => { // saving the data to use it on firebase
-      <button
-         onClick={saveNote}
-         className={styles.saveBtn}>
-         Save Note
-      </button>
-      // this is for firestore
-      addDoc(mainCollection, {
-         noteTitle: noteTitle
-      })
-
+   const [noteTitleInput, setNoteTitleInput] = useState("");
+   const [noteTextInput, setNoteTextInput] = useState("");
+   const saveNoteButton = () => {
+      saveNote(noteTitleInput, noteTextInput)
    }
 
    return (
@@ -38,22 +26,22 @@ export const NoteOperations = () => {
 
          {isInputVisible ? (
             <div className={styles.inputContainer}>
-               <input
-                  className={styles.input}
+               <input value={noteTitleInput} className={styles.input}
                   placeholder='Title'
-                  onChange={(e) => setNoteTitle(e.target.value)} // revisar SAVE NOTE BTN, no toma datos
+                  onChange={(e) => setNoteTitleInput(e.target.value)}
                />
-               <input className={styles.input} placeholder='Write your note here' />
+               <input value={noteTextInput} className={styles.input} placeholder='Write your note here' 
+               onChange={(e) => setNoteTextInput(e.target.value)} />
                <button
+                  onClick={saveNoteButton}
                   className={styles.saveBtn}>
                   Save Note
                </button>
+
             </div>
          ) : (
             <></>
          )}
-
-
       </>
    )
 }

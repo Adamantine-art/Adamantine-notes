@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyChjG_wv6jAPIT2C4BFMOWIv2ubEZrUruI",
   authDomain: "adamantine-notes.firebaseapp.com",
@@ -15,5 +13,13 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const database = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const database = getFirestore(app);
+const mainCollection = collection(database, 'notes');
+
+export const saveNote = (noteTitle, noteText) => { // saving the data on firebase
+  addDoc(mainCollection, {
+     noteTitle: noteTitle,
+     noteText: noteText
+  })
+};

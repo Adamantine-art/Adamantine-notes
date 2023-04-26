@@ -1,5 +1,9 @@
+import styles from '../../../styles/Home.module.css'
+
 export const AdamantineNotes = () => {
     return (
-        <div style={{backgroundImage: `url("/public/img/backgroundHome.png")`}}></div>
+        <div className={styles.backgroundHome}>
+            <img src="/img/backgroundHome.png" alt="background" />
+        </div>
     )
 }

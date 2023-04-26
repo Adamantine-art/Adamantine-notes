@@ -37,12 +37,12 @@ export const NoteOperations = () => {
                         placeholder='Title'
                         onChange={(e) => setNoteTitleInput(e.target.value)}
                      />
-                     <input value={noteTextInput} className={styles.input} placeholder='Write your note here'
+                     <textarea value={noteTextInput} className={styles.textArea} placeholder='Write your note here'
                         onChange={(e) => setNoteTextInput(e.target.value)} />
                      <button
                         onClick={addNoteButton}
                         className={styles.saveBtn}>
-                        Save Note
+                        ✓
                      </button>
                   </div>
                ) : (
@@ -50,14 +50,14 @@ export const NoteOperations = () => {
                )}
             </div>
 
-            <div className={styles.notesDisplay}>
+            {/* <div className={styles.notesDisplay}>
                {notesArray.map((note) => {
                   <div className={styles.notesInner}>
                      <h4>{note.noteTitle}</h4>
                      <p>{note.noteDescription}</p>
                   </div>
-               })};
-            </div>
+               })}
+            </div> */}
 
 
          </div>

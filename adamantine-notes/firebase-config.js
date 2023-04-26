@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -17,9 +17,18 @@ const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 const mainCollection = collection(database, 'notes');
 
-export const saveNote = (noteTitle, noteText) => { // saving the data on firebase
+export const addNote = (noteTitle, noteText) => { // saving the data on firebase
   addDoc(mainCollection, {
-     noteTitle: noteTitle,
-     noteText: noteText
+    noteTitle: noteTitle,
+    noteText: noteText
   })
 };
+
+export const getNotes = () => {
+  getDocs(mainCollection)
+    .then((data) => {
+      console.log(data.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      }));
+    });
+}

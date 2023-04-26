@@ -1,39 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+.backgroundHome {
+  width: 100%;
+}
+
 .container {
   display: flex;
-  margin: 10px;
+  margin: 0;
 }
 
 .left {
   width: 20rem;
 }
 
+.btnContainer {
+  width: 100%;
+  margin-right: 0px;
+  height: 625px;
+  right: 5%;
+  bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
 .button {
-  width: 15rem;
-  height: 2rem;
-  cursor: pointer;
-  background-color: black;
-  color: whiteSmoke;
-  border: black;
+  border: none;
+  border-radius: 50%;
+  color: #532893;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 50px;
+  margin: 4px 2px;
+  width: 80px;
+  height: 80px;
+  font-family: "Roboto";
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #53289380;
+}
+
+.inputContainer {
+  width: 30%;
+  height: 40%;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10%;
+  padding: 4%;
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  background: linear-gradient(178.66deg, rgba(255, 255, 255, 0.36) 1.14%, rgba(255, 255, 255, 0) 98.86%);
+  position: absolute;
+  top: 15%;
+  left: 0;
+}
+
+.input {
+  border-radius: 20px;
+  border: none;
+  padding: 5%;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 5%;
+}
+
+.input::placeholder {
+  color: #FFFFFF;
+  font-style: italic;
+  opacity: 0.6;
   font-family: "Roboto";
 }
 
-.input{
-  width: 15rem;
-  height: 2rem;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid gray;
-  margin: 5px 0;
+.textArea {
+  height: 80%;
+  border-radius: 20px;
+  border: none;
+  padding: 5%;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 5%;
 }
 
-.saveBtn{
-  width: 15rem;
-  height: 2rem;
+.textArea::placeholder {
+  color: #FFFFFF;
+  font-style: italic;
+  opacity: 0.6;
+  font-family: "Roboto";
+}
+
+.saveBtn {
+  width: 47px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  background-color: rgb(119, 27, 27);
-  color: whitesmoke;
-  border: rgb(119, 27, 27);
+  background-color: #532893cc;
+  color: #FFFFFF;
   font-family: 'Roboto';
+  font-size: 20px;
+  padding: 3%;
+}
+
+.saveBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.notesInner {
+  margin-top: 0.5rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 15rem;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Roboto";
+}
+
+.notesDisplay {
+  background-color: #532893;
+  width: 200px;
+  height: 200px;
+  color: white;
+  margin-right: 0;
 }

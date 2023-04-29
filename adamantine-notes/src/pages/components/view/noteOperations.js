@@ -17,12 +17,20 @@ export const NoteOperations = () => {
    }
 
    useEffect(() => {
-      getNotes();
+      getNotes().then((data) => {
+         setNotesArray(data.docs.map((note) => {
+            return { ...note.data(), id: note.id }
+         }))
+      })
+         .catch((error) => {
+            console.log(error);
+         })
    }, []);
 
    return (
       <>
          <div className={styles.homeContainer}>
+
 
             <div className={styles.btnContainer}>
                <button
@@ -50,14 +58,16 @@ export const NoteOperations = () => {
                )}
             </div>
 
-            {/* <div className={styles.notesDisplay}>
+            <div className={styles.notesDisplay}>
                {notesArray.map((note) => {
-                  <div className={styles.notesInner}>
+                  return (
+                     <div key={note} className={styles.notesInner}>
                      <h4>{note.noteTitle}</h4>
-                     <p>{note.noteDescription}</p>
+                     <p>{note.noteText}</p>
                   </div>
+                  )
                })}
-            </div> */}
+            </div>
 
 
          </div>

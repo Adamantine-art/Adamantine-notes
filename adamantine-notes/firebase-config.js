@@ -25,10 +25,5 @@ export const addNote = (noteTitle, noteText) => { // saving the data on firebase
 };
 
 export const getNotes = () => {
-  getDocs(mainCollection)
-    .then((data) => {
-      console.log(data.docs.map((item) => {
-        return { ...item.data(), id: item.id }
-      }));
-    });
+  return getDocs(mainCollection)
 }

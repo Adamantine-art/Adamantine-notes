@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.backgroundHome {
-  width: 100%;
-}
-
 .container {
   display: flex;
   margin: 0;
@@ -54,8 +50,7 @@
   width: 30%;
   height: 40%;
   border-radius: 20px;
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.8);
+  /* border: 2px solid rgba(255, 255, 255, 0.2); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

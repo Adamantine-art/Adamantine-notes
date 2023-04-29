@@ -17,9 +17,9 @@ export const NoteOperations = () => {
    }
 
    useEffect(() => {
-      getNotes();
+      getNotes(); // ejecutar la promesa acá
    }, []);
-
+   // useState afuera de useEffect
    return (
       <>
          <div className={styles.homeContainer}>

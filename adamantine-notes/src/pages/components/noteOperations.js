@@ -1,7 +1,6 @@
-import styles from '../../../styles/Home.module.css'
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { getNotes, addNote } from '../../../../firebase-config';
+import styles from '../../styles/Home.module.css'
+import { useState } from 'react';
+import { addNote } from '../../../firebase-config';
 
 export const NoteOperations = () => {
    const [isInputVisible, setInputVisible] = useState(false);
@@ -11,22 +10,10 @@ export const NoteOperations = () => {
 
    const [noteTitleInput, setNoteTitleInput] = useState("");
    const [noteTextInput, setNoteTextInput] = useState("");
-   const [notesArray, setNotesArray] = useState([]);
 
    const addNoteButton = () => {
       addNote(noteTitleInput, noteTextInput)
    }
-
-   useEffect(() => {
-      getNotes().then((data) => {
-         setNotesArray(data.docs.map((note) => {
-            return { ...note.data(), id: note.id }
-         }))
-      })
-         .catch((error) => {
-            console.log(error);
-         })
-   }, []);
 
    return (
       <>
@@ -58,26 +45,6 @@ export const NoteOperations = () => {
                   <></>
                )}
             </div>
-
-            <div className={styles.notesDisplayContainer}>
-               {notesArray.map((note) => {
-                  return (
-                     <div key={note} className={styles.eachNote}>
-                        <div>
-                           <h4 className={styles.noteTitle}>{note.noteTitle}</h4>
-                           <p className={styles.noteText}>{note.noteText}</p>
-                        </div>
-                        <div className={styles.iconsContainer}>
-                           <Image src="/img/pen.png" alt="edit" width={25} height={25} 
-                           className={styles.edit} />
-                           <Image src="/img/trash.png" alt="delete" width={25} height={25}
-                              className={styles.delete} />
-                        </div>
-                     </div>
-                  )
-               })}
-            </div>
-
 
          </div>
       </>

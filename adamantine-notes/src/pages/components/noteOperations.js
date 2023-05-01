@@ -1,6 +1,6 @@
-import styles from '../../../styles/Home.module.css'
-import { useEffect, useState } from 'react';
-import { getNotes, addNote } from '../../../../firebase-config';
+import styles from '../../styles/Home.module.css'
+import { useState } from 'react';
+import { addNote } from '../../../firebase-config';
 
 export const NoteOperations = () => {
    const [isInputVisible, setInputVisible] = useState(false);
@@ -10,22 +10,10 @@ export const NoteOperations = () => {
 
    const [noteTitleInput, setNoteTitleInput] = useState("");
    const [noteTextInput, setNoteTextInput] = useState("");
-   const [notesArray, setNotesArray] = useState([]);
 
    const addNoteButton = () => {
       addNote(noteTitleInput, noteTextInput)
    }
-
-   useEffect(() => {
-      getNotes().then((data) => {
-         setNotesArray(data.docs.map((note) => {
-            return { ...note.data(), id: note.id }
-         }))
-      })
-         .catch((error) => {
-            console.log(error);
-         })
-   }, []);
 
    return (
       <>
@@ -57,18 +45,6 @@ export const NoteOperations = () => {
                   <></>
                )}
             </div>
-
-            <div className={styles.notesDisplay}>
-               {notesArray.map((note) => {
-                  return (
-                     <div key={note} className={styles.notesInner}>
-                     <h4>{note.noteTitle}</h4>
-                     <p>{note.noteText}</p>
-                  </div>
-                  )
-               })}
-            </div>
-
 
          </div>
       </>

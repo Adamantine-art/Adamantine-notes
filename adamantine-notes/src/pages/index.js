@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { NoteOperations } from './components/view/noteOperations.js';
-import { AdamantineNotes } from './components/static/home.js';
-
-const inter = Inter({ subsets: ['latin'] })
+import { NoteOperations } from './components/noteOperations.js';
+import { AdamantineNotes } from './components/home.js';
+import { DisplayNotes } from './components/displayNotes.js'
 
 export default function Home() {
   return (
@@ -16,11 +14,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.container} >
-          <AdamantineNotes/>
-          <div className={styles.left}>
-            <NoteOperations/>
-          </div>
+        <div className={styles.adamantineHeader} >
+          <AdamantineNotes />
+        </div>
+        <div className={styles.newNote}>
+          <NoteOperations />
+        </div>
+        <div className={styles.displayedNote} >
+          <DisplayNotes />
         </div>
       </main>
     </>

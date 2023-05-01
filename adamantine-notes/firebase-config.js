@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 const mainCollection = collection(database, 'notes');
 
-export const addNote = (noteTitle, noteText) => { // saving the data on firebase
+export const addNote = (noteTitle, noteText) => {
   addDoc(mainCollection, {
     noteTitle: noteTitle,
     noteText: noteText

@@ -1,9 +1,10 @@
 import { getNotes } from "../../../firebase-config";
 import { useEffect, useState } from "react";
 import styles from '../../styles/Home.module.css';
+import { noteID } from "./noteID";
 import Image from "next/image";
 
-export const DisplayNotes = () => {
+export const DisplayNotes = ({NoteID}) => {
    const [notesArray, setNotesArray] = useState([]);
 
    useEffect(() => {
@@ -17,9 +18,9 @@ export const DisplayNotes = () => {
          })
    }, []);
 
-   useEffect(() => {
-      getNotes();
-   })
+   // useEffect(() => {
+   //    getNotes();
+   // })
    
    return (
       <>
@@ -35,7 +36,7 @@ export const DisplayNotes = () => {
                         <Image src="/img/pen.png" alt="edit" width={25} height={25}
                            className={styles.edit} />
                         <Image src="/img/trash.png" alt="delete" width={25} height={25}
-                           className={styles.delete} />
+                           className={styles.delete} onClick={() => noteID(note.id)} />
                      </div>
                   </div>
                )

@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { NoteOperations } from './components/noteOperations.js';
+import { NewNote } from './components/newNote.js';
 import { AdamantineNotes } from './components/home.js';
 import { DisplayNotes } from './components/displayNotes.js'
+import { noteID } from './components/noteID.js';
 
 export default function Home() {
   return (
@@ -18,10 +19,10 @@ export default function Home() {
           <AdamantineNotes />
         </div>
         <div className={styles.newNote}>
-          <NoteOperations />
+          <NewNote />
         </div>
         <div className={styles.displayedNote} >
-          <DisplayNotes />
+          <DisplayNotes noteID={noteID} />
         </div>
       </main>
     </>

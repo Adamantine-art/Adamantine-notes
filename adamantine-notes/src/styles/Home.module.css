@@ -178,6 +178,9 @@
 
 .delete {
   margin-left: 50%;
+}
+
+.delete:hover {
   cursor: pointer;
 }
 

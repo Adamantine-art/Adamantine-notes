@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, onSnapshot, getDocs, doc, deleteDoc } from "firebase/firestore";
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -24,6 +24,14 @@ export const addNote = (noteTitle, noteText) => {
   })
 };
 
-export const getNotes = () => {
-  return getDocs(mainCollection)
+// export const getNotes = () => {
+//   return getDocs(mainCollection)
+// }
+
+export const onSnapshotNotes = () => {
+  return onSnapshot(mainCollection)
+}
+
+export const deleteNote = async (id) => {
+  await deleteDoc()
 }

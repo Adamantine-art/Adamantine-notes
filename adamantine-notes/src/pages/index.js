@@ -3,7 +3,6 @@ import styles from '@/styles/Home.module.css'
 import { NewNote } from './components/newNote.js';
 import { AdamantineNotes } from './components/home.js';
 import { DisplayNotes } from './components/displayNotes.js'
-import { noteID } from './components/noteID.js';
 
 export default function Home() {
   return (
@@ -22,7 +21,7 @@ export default function Home() {
           <NewNote />
         </div>
         <div className={styles.displayedNote} >
-          <DisplayNotes noteID={noteID} />
+          <DisplayNotes />
         </div>
       </main>
     </>

@@ -28,9 +28,9 @@ export const addNote = (noteTitle, noteText) => {
 //   return getDocs(mainCollection)
 // }
 
-export const onSnapshotNotes = () => {
-  return onSnapshot(mainCollection)
-}
+export const onSnapshotNotes = onSnapshot(doc(database, "notes"), (doc) => {
+  console.log(doc.data());
+})
 
 export const deleteNote = async (id) => {
   await deleteDoc()

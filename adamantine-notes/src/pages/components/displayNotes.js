@@ -17,7 +17,7 @@ return (
       <div className={styles.notesDisplayContainer}>
          {notesArray.map((note) => {
             return (
-               <div key={note.id} className={styles.eachNote}>
+               <div key={note} className={styles.eachNote}>
                   <div>
                      <h4 className={styles.noteTitle}>{note.noteTitle}</h4>
                      <p className={styles.noteText}>{note.noteText}</p>

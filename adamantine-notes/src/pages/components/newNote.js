@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css'
-import { useEffect, useState } from 'react';
-import { addNote, getNotes } from '../../../firebase-config';
+import { useState } from 'react';
+import { addNote } from '../../../firebase-config';
 
 export const NewNote = () => {
    const [isInputVisible, setInputVisible] = useState(false);

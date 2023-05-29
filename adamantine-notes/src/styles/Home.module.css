@@ -54,7 +54,6 @@
   width: 30%;
   height: 40%;
   border-radius: 20px;
-  /* border: 2px solid rgba(255, 255, 255, 0.2); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -145,7 +144,6 @@
   color: white;
   margin-left: 6%;
   margin-top: 3%;
-  z-index: -15;
   position: sticky;
 }
 

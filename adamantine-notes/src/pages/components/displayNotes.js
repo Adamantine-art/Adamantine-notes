@@ -6,9 +6,8 @@ import Image from "next/image";
 export const DisplayNotes = () => {
    const [notesArray, setNotesArray] = useState([]);
 
-   const handleDelete = (e) => {
-      e.preventDefault(); // implement with useState
-      console.log("asd");
+   const handleDelete = async(id) => {
+      await deleteNote(id);
    }
 
    useEffect(() => {

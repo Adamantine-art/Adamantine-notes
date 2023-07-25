@@ -24,6 +24,7 @@
   position: fixed;
   align-items: flex-end;
   flex-direction: row-reverse;
+  z-index: 10
 }
 
 .button {

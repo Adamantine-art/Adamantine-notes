@@ -34,7 +34,7 @@ export const DisplayNotes = () => {
                      <div className={styles.iconsContainer}>
                         <Image src="/img/pen.png" alt="edit" width={25} height={25}
                            className={styles.edit} />
-                        <Image className={styles.delete} onClick={handleDelete} src="/img/trash.png" alt="delete" width={25} height={25} />
+                        <Image className={styles.delete} onClick={handleDelete} src="/img/trash.png" alt="delete note" width={25} height={25} />
                      </div>
                   </div>
                )

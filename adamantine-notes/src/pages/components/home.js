@@ -10,7 +10,7 @@ export const AdamantineNotes = () => {
                 </div>
                 
                 <div className={styles.headerIcons}>
-                    <Image src="/img/account.png" alt="account" width={50} height={50} className={styles.accountIcon} />
+                    <Image src="/img/account.png" alt="account " width={50} height={50} className={styles.accountIcon} />
                     <Image src="/img/logout.png" alt="log out" width={50} height={50} className={styles.logoutIcon} />
                 </div>
             </header>
